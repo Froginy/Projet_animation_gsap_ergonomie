@@ -1,27 +1,39 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="/src/style.css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>front</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
 
-    <nav>
-      <h1>
-        Nature Peinture
-      </h1>
-      <a href="#">Qui sommes nous ?</a>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="src/styleLaly.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <title>front</title>
+</head>
 
-    <section id="hero">
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.js"></script>
+
+  <nav>
+    <h1>
+      Nature Peinture
+    </h1>
+    <a href="#">Qui sommes nous ?</a>
+  </nav>
+
+  <section id="hero">
+    <div class="image-container">
       <img src="/src/assets/images/ecureuil.jpg">
-      <a href="#">Découvrir plus -></a>
-    </section>
+      <div class="overlay"></div>
+    </div>
+    <a href="#">explorer <img src="src/assets/arrow.svg" alt="flèche"></a>
+  </section>
 
-  </body>
+</body>
+
 </html>
