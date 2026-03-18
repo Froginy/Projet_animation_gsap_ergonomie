@@ -1,0 +1,21 @@
+element {
+
+    --bg-color : #E9E7E5;
+    --typo-main : "Lobster";
+    --typo-secondary : "Montserrat";
+    --main-color : #588157;
+    --secondary-color : #354E41;
+
+}
+
+
+header {
+    background-color: var(--main-color);
+    height: 100px;
+    width: 100%;
+    font-family: var(--typo-main);
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+}
