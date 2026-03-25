@@ -1,15 +1,5 @@
 <!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="/src/style.css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>front</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+<html lang="en">
 
     <nav>
       <h1>
@@ -23,11 +13,10 @@
       <a href="#">Découvrir plus -></a>
     </section>
 
-  <nav>
-    <p id="logo">
+  <nav aria-label="Navigation principale">
+    <a id="logo" href="index.html" aria-label="Go home">
       Nature Peinture
-    </p>
-    <a href="#">Qui sommes nous ?</a>
+    </a>
   </nav>
 
   <section id="hero">
@@ -35,12 +24,12 @@
       <img src="/src/assets/images/ecureuil.jpg" alt="écureuil" class="hero-image">
       
       <div class="overlay">
-        <h1 id="chars">Nature is a work of art, 
+        <h1 id="chars" aria-label="Nature is a work of art, protect it">Nature is a work of art, 
 protect it</h1>
       </div>
       
     </div>
-    <a href="#">explorer <img src="src/assets/arrow.svg" alt="flèche"></a>
+    <a href="#" aria-label="Explore">explorer <img src="src/assets/arrow.svg" alt="" aria-hidden="true"></a>
   </section>
 
 
