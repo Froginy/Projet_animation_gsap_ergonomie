@@ -1,16 +1,207 @@
 <!doctype html>
-<html lang="en">
-
-<head>
+<html lang="fr">
+  <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>front</title>
-</head>
+    <link rel="stylesheet" href="/src/styleLaly.css" />
+    <link rel="stylesheet" href="/src/gallery.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Galerie - Nature Peinture</title>
+  </head>
+  <body>
+    <nav>
+      <h1>Nature Peinture</h1>
+      <a href="index.html">Retour à l'accueil</a>
+    </nav>
 
-<body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-</body>
+    <section class="intro">
+      <div class="zoom-container">
+        <!-- Static background image -->
+        <img
+          src="/src/assets/images/loutre.jpg"
+          alt="Loutre"
+          class="main-photo"
+        />
 
+        <!-- SVG Mask Overlay -->
+        <svg
+          class="text-mask"
+          viewBox="0 0 1000 600"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          <defs>
+            <mask id="mask-text" x="0" y="0" width="100%" height="100%">
+              <!-- White is solid background -->
+              <rect x="0" y="0" width="100%" height="100%" fill="white" />
+              <!-- Black is transparent text window -->
+              <text
+                x="50%"
+                y="30%"
+                dominant-baseline="middle"
+                text-anchor="middle"
+                font-family="Lobster, sans-serif"
+                font-size="200px"
+                fill="black"
+              >
+                Découvrez
+              </text>
+              <text
+                x="50%"
+                y="54%"
+                dominant-baseline="middle"
+                text-anchor="middle"
+                font-family="Lobster, sans-serif"
+                font-size="200px"
+                fill="black"
+              >
+                la
+              </text>
+              <text
+                x="50%"
+                y="78%"
+                dominant-baseline="middle"
+                text-anchor="middle"
+                font-family="Lobster, sans-serif"
+                font-size="200px"
+                fill="black"
+              >
+                nature
+              </text>
+            </mask>
+          </defs>
+          <!-- The overlay colored layer -->
+          <rect
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            fill="#E9E7E5"
+            mask="url(#mask-text)"
+          />
+        </svg>
+      </div>
+    </section>
+
+    <main class="gallery-container">
+      <div class="gallery-item" tabindex="0" role="button" aria-labelledby="title-aurore" aria-describedby="desc-aurore author-aurore">
+        <img src="/src/assets/images/aurore.jpg" alt="Photographie d'une aurore, prise par Laure Golaz" />
+        <div class="overlay"></div>
+        <div class="item-details" hidden>
+            <span id="title-aurore">Aurore Boréale</span>
+            <span id="author-aurore">Laure Golaz</span>
+            <p id="desc-aurore">Une lumière dansante capturée dans le ciel nocturne.</p>
+        </div>
+      </div>
+      <div class="gallery-item" tabindex="0" role="button" aria-labelledby="title-ecureuil" aria-describedby="desc-ecureuil author-ecureuil">
+        <img src="/src/assets/images/ecureuil.jpg" alt="Photographie d'un écureuil, prise par Laure Golaz" />
+        <div class="overlay"></div>
+        <div class="item-details" hidden>
+            <span id="title-ecureuil">Écureuil Curieux</span>
+            <span id="author-ecureuil">Laure Golaz</span>
+            <p id="desc-ecureuil">Un petit écureuil roux surpris en pleine forêt.</p>
+        </div>
+      </div>
+      <div class="gallery-item" tabindex="0" role="button" aria-labelledby="title-lievre" aria-describedby="desc-lievre author-lievre">
+        <img src="/src/assets/images/lievre.jpg" alt="Photographie d'un lièvre, prise par Laure Golaz" />
+        <div class="overlay"></div>
+        <div class="item-details" hidden>
+            <span id="title-lievre">Lièvre Agile</span>
+            <span id="author-lievre">Laure Golaz</span>
+            <p id="desc-lievre">Un lièvre bondissant dans la rosée matinale.</p>
+        </div>
+      </div>
+      <div class="gallery-item" tabindex="0" role="button" aria-labelledby="title-loutre" aria-describedby="desc-loutre author-loutre">
+        <img src="/src/assets/images/loutre.jpg" alt="Photographie d'une loutre, prise par Laure Golaz" />
+        <div class="overlay"></div>
+        <div class="item-details" hidden>
+            <span id="title-loutre">Loutre Nageuse</span>
+            <span id="author-loutre">Laure Golaz</span>
+            <p id="desc-loutre">Portrait détaillé d'une petite loutre au bord de l'eau.</p>
+        </div>
+      </div>
+      <div class="gallery-item" tabindex="0" role="button" aria-labelledby="title-mesange" aria-describedby="desc-mesange author-mesange">
+        <img src="/src/assets/images/mesange.jpg" alt="Photographie d'une mésange, prise par Laure Golaz" />
+        <div class="overlay"></div>
+        <div class="item-details" hidden>
+            <span id="title-mesange">Mésange Délicate</span>
+            <span id="author-mesange">Laure Golaz</span>
+            <p id="desc-mesange">Une mésange colorée posée fièrement sur une branche.</p>
+        </div>
+      </div>
+      <div class="gallery-item" tabindex="0" role="button" aria-labelledby="title-mesange2" aria-describedby="desc-mesange2 author-mesange2">
+        <img src="/src/assets/images/mesange2.jpg" alt="Photographie d'une autre mésange, prise par Laure Golaz" />
+        <div class="overlay"></div>
+        <div class="item-details" hidden>
+            <span id="title-mesange2">Mésange Chanteuse</span>
+            <span id="author-mesange2">Laure Golaz</span>
+            <p id="desc-mesange2">Une autre perspective de ce bel oiseau des jardins.</p>
+        </div>
+      </div>
+      <div class="gallery-item" tabindex="0" role="button" aria-labelledby="title-mouette" aria-describedby="desc-mouette author-mouette">
+        <img src="/src/assets/images/mouette.jpg" alt="Photographie d'une mouette, prise par Laure Golaz" />
+        <div class="overlay"></div>
+        <div class="item-details" hidden>
+            <span id="title-mouette">Mouette Rieuse</span>
+            <span id="author-mouette">Laure Golaz</span>
+            <p id="desc-mouette">Le vent marin ébouriffant le plumage d'une mouette.</p>
+        </div>
+      </div>
+      <div class="gallery-item" tabindex="0" role="button" aria-labelledby="title-nelsun" aria-describedby="desc-nelsun author-nelsun">
+        <img src="/src/assets/images/nelsun.jpg" alt="Photographie de Nelsun, prise par Laure Golaz" />
+        <div class="overlay"></div>
+        <div class="item-details" hidden>
+            <span id="title-nelsun">Aventure Nelsun</span>
+            <span id="author-nelsun">Laure Golaz</span>
+            <p id="desc-nelsun">Un cliché fantastique aux couleurs singulières.</p>
+        </div>
+      </div>
+      <div class="gallery-item" tabindex="0" role="button" aria-labelledby="title-phoque" aria-describedby="desc-phoque author-phoque">
+        <img src="/src/assets/images/phoque.jpg" alt="Photographie d'un phoque, prise par Laure Golaz" />
+        <div class="overlay"></div>
+        <div class="item-details" hidden>
+            <span id="title-phoque">Phoque Solitaire</span>
+            <span id="author-phoque">Laure Golaz</span>
+            <p id="desc-phoque">Le regard profond d'un phoque se prélassant.</p>
+        </div>
+      </div>
+      <div class="gallery-item" tabindex="0" role="button" aria-labelledby="title-phoques" aria-describedby="desc-phoques author-phoques">
+        <img src="/src/assets/images/phoques.jpg" alt="Photographie de plusieurs phoques, prise par Laure Golaz" />
+        <div class="overlay"></div>
+        <div class="item-details" hidden>
+            <span id="title-phoques">Colonie de Phoques</span>
+            <span id="author-phoques">Laure Golaz</span>
+            <p id="desc-phoques">Un groupe paisible se reposant sur la côte.</p>
+        </div>
+      </div>
+      <div class="gallery-item" tabindex="0" role="button" aria-labelledby="title-vers" aria-describedby="desc-vers author-vers">
+        <img src="/src/assets/images/vers.jpg" alt="Photographie macro de vers, prise par Laure Golaz" />
+        <div class="overlay"></div>
+        <div class="item-details" hidden>
+            <span id="title-vers">Micro Nature</span>
+            <span id="author-vers">Laure Golaz</span>
+            <p id="desc-vers">La vie microscopique du sol magnifiée.</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal Lightbox Accessible -->
+    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+        <button id="lightbox-close" aria-label="Fermer la vue agrandie (Échap)" tabindex="-1">&times;</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <div class="lightbox-info">
+                <h2 id="lightbox-title"></h2>
+                <p class="author">Par <span id="lightbox-author"></span></p>
+                <p id="lightbox-desc"></p>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/gallery.js"></script>
+  </body>
 </html>
