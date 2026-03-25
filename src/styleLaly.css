@@ -1,10 +1,11 @@
 element {
 
-    --bg-color : #E9E7E5;
-    --typo-main : "Lobster";
-    --typo-secondary : "Montserrat";
-    --main-color : #588157;
-    --secondary-color : #354E41;
+    --bg-color: #E9E7E5;
+    --typo-main: "Lobster";
+    --typo-secondary: "Montserrat";
+    --main-color: #588157;
+    --secondary-color: #354E41;
+    --overlay-color: rgba(53, 78, 65, 0.6);
 
 }
 
@@ -34,6 +35,13 @@ nav{
   align-items: center;
   justify-content: space-around;
 
+  p{
+     font-family: var(--typo-main);
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+}
+  
+
 
   a {
     position: relative;
@@ -61,6 +69,22 @@ nav{
 
   a:hover::after , a:focus::after{
     width: calc(100% - 20px);
+  }
+}
+
+.overlay{
+  background-color: var(--overlay-color);
+  h1{
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    color: white;
+    font-size: 5em;
+    text-align: center;
+  
+    background-color: none;
   }
 }
 
