@@ -1,0 +1,100 @@
+.intro {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--bg-color);
+}
+
+.zoom-container {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.text-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    /* transform-origin determines where the zoom centers. Default is center center. */
+    transform-origin: center center;
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    column-count: 3;
+    column-gap: 20px;
+}
+
+.gallery-item {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover, .gallery-item:focus {
+    transform: translateY(-5px);
+    box-shadow: rgba(45, 35, 66, 0.4) 0 8px 16px, rgba(45, 35, 66, 0.3) 0 14px 26px -6px, #D6D6E7 0 -3px 0 inset;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 1rem;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 1rem;
+    pointer-events: none;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 0.3;
+}
+
+@media (max-width: 900px) {
+    .gallery-container {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-container {
+        column-count: 1;
+    }
+}
