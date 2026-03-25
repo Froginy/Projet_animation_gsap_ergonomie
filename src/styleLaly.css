@@ -1,4 +1,4 @@
-element {
+:root {
 
     --bg-color: #E9E7E5;
     --typo-main: "Lobster";
@@ -9,11 +9,9 @@ element {
 
 }
 
-
-header {
-    background-color: var(--main-color);
-    height: 100px;
-    width: 100%;
+h1,
+h2,
+h3 {
     font-family: var(--typo-main);
     font-size: 2.5rem;
     letter-spacing: 3px;
