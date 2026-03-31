@@ -181,3 +181,9 @@
     font-size: 1.1rem;
     line-height: 1.5;
 }
+
+.lightbox-info:focus-visible {
+    outline: 3px solid var(--main-color);
+    outline-offset: -3px;
+    border-radius: 8px;
+}
