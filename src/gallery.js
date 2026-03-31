@@ -108,15 +108,15 @@ function closeLightbox() {
     lightbox.setAttribute('aria-hidden', 'true');
     lightboxClose.setAttribute('tabindex', '-1');
     
-    // Restore focus
-    if (lastFocusedElement) {
-        lastFocusedElement.focus();
-    }
-    
-    // Restore background elements accessibility
+    // Restore background elements accessibility FIRST
     mainRegions.forEach(region => {
         if (region) region.removeAttribute('inert');
     });
+
+    // NOW Restore focus (it fails if the element is still inert)
+    if (lastFocusedElement) {
+        lastFocusedElement.focus();
+    }
     
     // Restore body scroll
     document.body.style.overflow = '';
