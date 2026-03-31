@@ -12,12 +12,14 @@
       href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <title>Galerie - Nature Peinture</title>
+    <title>Galerie - PaperLeaf</title>
   </head>
   <body>
-    <nav>
-      <h1>Nature Peinture</h1>
-      <a href="index.html">Retour à l'accueil</a>
+    <nav aria-label="Navigation principale">
+      <a id="logo" href="index.html" aria-label="Go home">
+        <h1>PaperLeaf</h1>
+      </a>
+      <a href="index.html">Accueil</a>
     </nav>
 
     <section class="intro">
@@ -218,11 +220,11 @@
     </main>
 
     <!-- Modal Lightbox Accessible -->
-    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" aria-describedby="lightbox-desc">
         <button id="lightbox-close" aria-label="Fermer la vue agrandie (Échap)" tabindex="-1">&times;</button>
         <div class="lightbox-content">
             <img id="lightbox-img" src="" alt="">
-            <div class="lightbox-info">
+            <div class="lightbox-info" tabindex="0">
                 <h2 id="lightbox-title"></h2>
                 <p class="author">Par <span id="lightbox-author"></span></p>
                 <p id="lightbox-desc"></p>

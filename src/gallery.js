@@ -60,6 +60,13 @@ const lightboxClose = document.getElementById('lightbox-close');
 
 let lastFocusedElement = null;
 
+// Elements to make inert when modal is open
+const mainRegions = [
+    document.querySelector('nav'),
+    document.querySelector('.intro'),
+    document.querySelector('.gallery-container')
+];
+
 function openLightbox(item) {
     // Save the element that triggered the modal for focus restoration
     lastFocusedElement = item;
@@ -67,9 +74,10 @@ function openLightbox(item) {
     // Extract data
     const img = item.querySelector('img');
     const details = item.querySelector('.item-details');
-    const title = details.querySelector('span[id^="title-"]').innerText;
-    const author = details.querySelector('span[id^="author-"]').innerText;
-    const desc = details.querySelector('p[id^="desc-"]').innerText;
+    // textContent is safer than innerText for elements hidden via HTML attribute or CSS
+    const title = details.querySelector('span[id^="title-"]').textContent;
+    const author = details.querySelector('span[id^="author-"]').textContent;
+    const desc = details.querySelector('p[id^="desc-"]').textContent;
 
     // Populate lightbox
     lightboxImg.src = img.src;
@@ -86,6 +94,11 @@ function openLightbox(item) {
     lightboxClose.setAttribute('tabindex', '0');
     lightboxClose.focus();
     
+    // Make background elements inert for true accessibility modal trapping
+    mainRegions.forEach(region => {
+        if (region) region.setAttribute('inert', '');
+    });
+
     // Optional: lock body scroll
     document.body.style.overflow = 'hidden';
 }
@@ -99,6 +112,11 @@ function closeLightbox() {
     if (lastFocusedElement) {
         lastFocusedElement.focus();
     }
+    
+    // Restore background elements accessibility
+    mainRegions.forEach(region => {
+        if (region) region.removeAttribute('inert');
+    });
     
     // Restore body scroll
     document.body.style.overflow = '';
@@ -153,10 +171,27 @@ if (lightbox) {
             closeLightbox();
         }
         
-        // Trap focus
+        // Trap focus dynamically for all focusable elements inside the modal
         if (e.key === 'Tab') {
-            e.preventDefault(); // Keep focus on close button as it's the only focusable element for now
-            lightboxClose.focus(); 
+            const focusableElements = lightbox.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
+            if (focusableElements.length > 0) {
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+
+                if (e.shiftKey) { // Shift + Tab
+                    if (document.activeElement === firstElement || document.activeElement === lightbox) {
+                        e.preventDefault();
+                        lastElement.focus();
+                    }
+                } else { // Tab
+                    if (document.activeElement === lastElement) {
+                        e.preventDefault();
+                        firstElement.focus();
+                    }
+                }
+            } else {
+                e.preventDefault();
+            }
         }
     });
 }
