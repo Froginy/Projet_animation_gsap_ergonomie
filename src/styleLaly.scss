@@ -1,0 +1,87 @@
+$bg-color: #E9E7E5;
+$typo-main: "Lobster";
+$typo-secondary: "Montserrat";
+$main-color: #588157;
+$secondary-color: #354E41;
+$overlay-color: rgba(53, 78, 65, 0.6);
+
+:root {
+  --bg-color: #{$bg-color};
+  --typo-main: #{$typo-main};
+  --typo-secondary: #{$typo-secondary};
+  --main-color: #{$main-color};
+  --secondary-color: #{$secondary-color};
+  --overlay-color: #{$overlay-color};
+}
+
+h1, h2, h3 {
+  font-family: var(--typo-main);
+  font-size: 2.5rem;
+  letter-spacing: 3px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  font-family: var(--typo-secondary);
+}
+
+nav {
+  color: var(--bg-color);
+  background-color: var(--main-color);
+  display: flex;
+  height: 90px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+
+  p {
+    font-family: var(--typo-main);
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+  }
+
+  a {
+    position: relative;
+    color: var(--bg-color);
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 10px;
+    transition: all 0.3s ease;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 5px;
+      left: 10px;
+      background-color: var(--bg-color);
+      transition: width 0.3s ease;
+    }
+
+    &:hover, &:focus {
+      font-size: 1.6rem;
+
+      &::after {
+        width: calc(100% - 20px);
+      }
+    }
+  }
+}
+
+.overlay {
+  background-color: var(--overlay-color);
+
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    color: white;
+    font-size: 5em;
+    text-align: center;
+    background-color: none;
+  }
+}
